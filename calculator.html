@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Courier New", Courier, monospace;
+        }
+        
+        body {
+            background: linear-gradient(rgb(0, 0, 0, 0.5)50%, rgb(0, 0, 0, 0.5)50%), url(/bootstrap/windows_obj/pexels-photo-3183132.jpeg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 97vh;
+        }
+        
+        .flex-box-calculator {
+            border-radius: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            display: flex;
+            margin: auto;
+            padding: 10px;
+            display: flex;
+            max-width: 50%;
+            height: 460px;
+            background-color: rgb(14, 23, 33);
+            position: relative;
+            box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25), 10px 10px 70px rgba(0, 0, 0, 0.25), inset -5px -5px 15px rgba(0, 0, 0, 0.25), inset 5px 5px 15px rgba(0, 0, 0, 0.25);
+        }
+        
+        .container {
+            justify-content: center;
+            max-width: 50%;
+            align-items: center;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            width: 70px;
+            align-content: center;
+            color: rgba(156, 25, 237, 0.878);
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            font-size: 15px;
+            height: 40px;
+            background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
+            box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15), inset 0 -8px 8px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(0, 0, 0, 0.75), 10px 20px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .btn:active {
+            filter: brightness(1.5);
+        }
+        
+        #grey {
+            border-radius: 30%;
+            background: rebeccapurple;
+            color: rgb(40, 7, 9);
+            font-size: 17px;
+        }
+        
+        input {
+            height: 48px;
+            width: 400px;
+            border-radius: 8px;
+            font-size: 26px;
+            font-weight: bold;
+            color: saddlebrown;
+            text-align: right;
+            background-color: transparent;
+            border: none;
+        }
+        
+        #white {
+            background-color: rgb(112, 90, 90);
+            color: #fff;
+            font-weight: bold;
+            border-radius: 30px;
+            border: none;
+        }
+        
+        #equal {
+            background: #f00;
+            color: rgb(118, 76, 76);
+            font-weight: bolder;
+            font-stretch: expanded;
+            border-radius: 12px;
+            color: olive;
+        }
+        
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .mode {
+            border-radius: 100px;
+            height: 20px;
+            width: 20px;
+            border: 1px solid white;
+        }
+        
+        .wrap {
+            justify-content: center;
+            align-items: center;
+            border: 1px solid grey;
+            width: 37px;
+            height: 19px;
+            border-radius: 50px;
+            margin-right: 0px;
+            margin-left: 270px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let check = true;
+
+        function Mode() {
+            var mode = document.getElementById('darklight')
+            let inp = document.getElementById('value')
+            if (check) {
+                let calc = document.getElementById('calc')
+                calc.style.backgroundColor = 'rgb(236, 217, 194)'
+                document.body.appendChild(mode)
+                let mod = document.getElementById('bg')
+                mod.style.backgroundColor = 'black'
+                mod.style.borderColor = 'black'
+                mod.style.float = 'right'
+                inp.style.color = 'olive'
+                check = false;
+
+            } else {
+                let calc = document.getElementById('calc')
+                calc.style.backgroundColor = 'rgb(14, 23, 33)'
+                document.body.appendChild(mode)
+                let mod = document.getElementById('bg')
+                mod.style.backgroundColor = 'white'
+                mod.style.float = 'left'
+                mod.style.border = '1px solid white'
+                inp.style.color = 'saddlebrown'
+                check = true
+
+            }
+        }
+    </script>
+
+
+    <div class="container" id="darklight">
+        <div class="flex-box-calculator" id="calc">
+            <div class="wrap">
+                <button class="mode" onclick="Mode()" id="bg"></button class="btn">
+            </div>
+            
+
+            <input type="text " value="" id="value" placeholder="0" readonly>
+            <span>
+            <button class="btn" onclick="clr()" id="grey">AC</button class="btn" >
+            <button class="btn" onclick="calculate('**')" id="grey">^</button class="btn" >
+            <button class="btn" onclick="calculate('%')" id="grey">%</button class="btn" >
+            <button class="btn" onclick="calculate('/')" id="grey">/</button class="btn" >
+            </span>
+            <span>
+            
+            <button class="btn" onclick="calculate(7)" id="white">7</button class="btn" >
+            <button class="btn" onclick="calculate(8)" id="white">8</button class="btn" >
+            <button class="btn" onclick="calculate(9)" id="white">9</button class="btn" >
+            <button class="btn" onclick="calculate('*')" id="grey">*</button class="btn" >
+            </span>
+            <span>
+            <button class="btn" onclick="calculate(4)" id="white">4</button class="btn" >
+            <button class="btn" onclick="calculate(5)" id="white">5</button class="btn" >
+            <button class="btn" onclick="calculate(6)" id="white">6</button class="btn" >
+            <button class="btn" onclick="calculate('-')" id="grey">-</button class="btn" >
+            </span>
+            <span>
+            
+            <button class="btn" onclick="calculate(1)" id="white">1</button class="btn" >
+            <button class="btn" onclick="calculate(2)" id="white">2</button class="btn" >
+            <button class="btn" onclick="calculate(3)" id="white">3</button class="btn" >
+            <button class="btn" onclick="calculate('+')" id="grey">+</button class="btn" >
+            </span>
+            <span>
+            
+            <button class="btn" onclick="calculate('.')" id="grey">.</button class="btn" >
+            <button class="btn" onclick="calculate(0)" id="white">0</button class="btn" >
+            <button class="btn" onclick="del()" id="grey">CE</button class="btn" >
+            </span>
+            <button class="btn" onclick="Result()" id="equal">=</button class="btn" >
+        </div>
+    </div>
+    <script>
+        let result = document.getElementById('value');
+
+        function calculate(number) {
+            result.value += number;
+        }
+
+        function Result() {
+            try {
+                result.value = eval(result.value)
+            } catch (err) {
+                document.getElementById('value').value = 'math error'
+            }
+        }
+
+        function clr() {
+            result.value = " ";
+        }
+
+        function del() {
+            result.value = result.value.slice(0, -1);
+        }
+
+        // dark and light mode
+        
+    </script>
+
+</body>
+
+</html>
