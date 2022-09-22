@@ -781,7 +781,7 @@
             left: 0;
         }
         .section.open {
-            left: 270px;
+            left: 0;
         }
         .about .about-content .personal-info .info-item p span {
             display: block;
